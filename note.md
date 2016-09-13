@@ -38,3 +38,73 @@ print(a)
 10//3 = 3
 ```
 
+## 2. 字符串和编码 
+
+- 在最新的 Python 3 版本中字符串用 Unicode 编码。ord() 函数获取字符的整数表示， chr() 函数可以把编码转换为对应的字符：
+
+``` Python
+>>> ord('A')
+65
+>>> chr(65)
+'A'
+>>> ord('中')
+20013
+>>> chr(20013)
+'中'
+```
+
+- 如果要在网络上传输字符串或者把字符串保存到磁盘上，就需要把```str```变成以字节为单位的```bytes```。 Python 对```bytes```类型的数据用带b前缀的单引号或双引号表示：
+
+``` Python
+x = b'ABC'
+```
+
+- 以 Unicode 表示的```str```通过```encode()```方法可以编码为指定的```bytes```，例如：
+
+``` Python
+>>> 'ABC'.encode('ascii')
+b'ABC'
+>>> '中文'.encode('utf-8')
+b'\xe4\xb8\xad\xe6\x96\x87'
+>>> '中文'.encode('ascii')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: 
+ordinal not in range(128)
+```
+
+纯英文的```str```可以用 ASCII 编码为```bytes```，内容是一样的，含有中文的```str```可以用 UTF-8 编码为```bytes```。含有中文的```str```无法用 ASCII 编码，因为中文编码的范围超过了 ASCII 编码的范围， Python 会报错。
+
+- 如果从网络或者磁盘上读取了字节流，那么读到的数据是```bytes```。要把```bytes```变成```str```，需要用```decode()```方法：
+
+``` Python
+>>> b'ABC'.decode('ascii')
+'ABC'
+>>> b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')
+'中文'
+```
+
+- 计算字符串的长度用```len()```函数：
+
+``` Python
+>>> len('ABC')
+3
+>>> len('中文')
+2
+>>> len(b'ABC')
+3
+>>> len('中文'.encode('utf-8'))
+6
+```
+
+```len()```函数对于```str```字符串计算的是字符数，对于```bytes```字符串计算的是字节数。
+
+- Python 源文件也是一个文本文件，所以当源代码有中文时，需要在保存的时候将源代码保存为 UTF-8 编码。当 Python 解释器读取源代码时，为了让它按照 UTF-8 读取，需要在文件开头写上：
+
+``` Python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+```
+
+第一行是用于告诉 Linux/macOS 这是一个 Python 执行文件，第二行是为了告诉解释器按照 UTF-8 编码格式读取源代码。
+
