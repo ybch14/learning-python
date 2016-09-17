@@ -108,3 +108,19 @@ ordinal not in range(128)
 
 第一行是用于告诉 Linux/macOS 这是一个 Python 执行文件，第二行是为了告诉解释器按照 UTF-8 编码格式读取源代码。
 
+- Python中格式化输出字符串的方式和C语言相同，用```%```实现：
+
+``` Python
+>>> "Hello, %s" % "world"
+'Hello, world'
+>>> 'Hello %s, you owe me %d dollars' % ('zengsihan',100000)
+'Hello zengsihan, you owe me 100000 dollars
+```
+
+有些时候，字符串里面的%是一个普通字符怎么办？这个时候就需要转义，用```%%```来表示一个```%```：
+
+``` Python
+>>> 'This mission is %d%% completed.'% 59
+'This mission is 59% completed.'
+```
+
