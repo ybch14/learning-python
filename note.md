@@ -194,7 +194,7 @@ Traceback (most recent call last):
 AttributeError: 'tuple' object has no attribute 'pop'
 ```
 
-- 为了防止定义单元素的 tuple 的小括号和数学运算的小括号，在定义只有一个元素的 tuple 时必须加一个逗号来消除歧义。另外需要注意的是，如果 tuple 中的元素中包含 list ，那么这个 list 中的元素是可以改变的，因为 tuple 中的不可改变是指 tuple 中元素的指向永远不改变，如果指向一个 list ，就不能改成指向其他对象，但是指向的 list 本身可变。如：
+- 为了防止定义单元素的 tuple 的小括号和数学运算的小括号冲突，在定义只有一个元素的 tuple 时必须加一个逗号来消除歧义。另外需要注意的是，如果 tuple 中的元素中包含 list ，那么这个 list 中的元素是可以改变的，因为 tuple 中的不可改变是指 tuple 中元素的指向永远不改变，如果指向一个 list ，就不能改成指向其他对象，但是指向的 list 本身可变。如：
 
 ``` Python
 >>> classmate=('michael',)
