@@ -208,3 +208,39 @@ AttributeError: 'tuple' object has no attribute 'pop'
 >>> t
 ('a', 'b', ['a', 'b'])
 ```
+
+## 4. 条件判断
+
+- Python 的条件判断和 C 语言几乎一样，格式如下：
+
+``` Python
+age=3
+if age>=18:
+    print('adult')
+elif age>=6:
+    print('teenager')
+else:
+    print('kid')
+```
+
+需要注意的是，```if```可以简写：
+
+```Python
+if x:
+    print('True')
+```
+
+只要```x```是非零数值、非空字符串、非空 list 等，就判断为```True```。
+
+- 另外需要注意的是， Python 中 input() 函数返回的数据类型是```str```，不能直接和指数比较，所以在如下情况中必须先用 int() 函数把```str```转换成整数，再用```if```比较大小。
+
+``` Python
+birth=input('please input your birth : ')
+birth=int(birth)
+if birth>2000:
+    print('00后')
+else:
+    print('00前')
+```
+
+## 5. 
