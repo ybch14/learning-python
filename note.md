@@ -279,7 +279,8 @@ Sum of 1 to 10 equals  55
 
 - Python 中的 while 循环格式为
 
-``` while *循环执行条件*:
+``` 
+while *循环执行条件*:
     *your codes*
 ```
 
