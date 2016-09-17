@@ -214,6 +214,7 @@ AttributeError: 'tuple' object has no attribute 'pop'
 - Python 的条件判断和 C 语言几乎一样，格式如下：
 
 ``` Python
+# do-if.py
 age=3
 if age>=18:
     print('adult')
@@ -235,6 +236,7 @@ if x:
 - 另外需要注意的是， Python 中 input() 函数返回的数据类型是```str```，不能直接和指数比较，所以在如下情况中必须先用 int() 函数把```str```转换成整数，再用```if```比较大小。
 
 ``` Python
+# test_int.py
 birth=input('please input your birth : ')
 birth=int(birth)
 if birth>2000:
@@ -243,4 +245,55 @@ else:
     print('00前')
 ```
 
-## 5. 
+## 5. 循环
+
+- Python 中的 for 循环的格式是：```for …… in ……:```，可以依次把 list 或 tuple 中的每个元素迭代出来。如：
+
+``` Python
+# test_cycle.py
+classmates=['Michael','Bob','Tracy']
+for name in classmates:
+    print('Hello',name)
+number=0
+numberlist=[1,2,3,4,5,6,7,8,9,10]
+for x in numberlist:
+    number=number+x
+print('Sum of 1 to 10 equals ',number)
+```
+
+输出结果为：
+
+```
+Hello Michael
+Hello Bob
+Hello Tracy
+Sum of 1 to 10 equals  55
+```
+
+- 如果要计算 1-100 的整数和，从 1 写到 100 很难。 Python 提供一个 range(*number*)函数，可以生成一个小于 *number* 的整数序列，再通过 list() 函数转换为 list ，如：
+
+``` Python
+>>> list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+- Python 中的 while 循环格式为
+
+``` while *循环执行条件*:
+    *your codes*
+```
+
+如求解100以内的所有奇数的和：
+
+``` Python
+# test_cycle.py
+number=0
+maxnumber=100
+n=maxnumber-1
+while n>0:
+    number=number+n
+    n=n-2
+print('Sum of odd numbers from 1 to 100 equals',number)
+```
+
+注：不要忘了两种循环语句的最后都有一个冒号。
