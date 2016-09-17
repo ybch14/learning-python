@@ -124,3 +124,87 @@ ordinal not in range(128)
 'This mission is 59% completed.'
 ```
 
+## 3. list 和 tuple
+- list 是 Python 内置的一种数据类型，是一种有序的可更改的集合，可以随时添加和删除其中的元素，声明方式同 MATLAB 的行向量（空列表的声明方式和空向量也一样）。用 len() 函数可以获得 list 元素中的个数。用数组的索引方式可以访问 list 中的每一个位置的元素。如：
+``` Python
+>>> classmates=['michael','bob','tracy']
+>>> classmates
+['michael', 'bob', 'tracy']
+>>> len(classmates)
+3
+>>> L=[]
+>>> len(L)
+0
+>>> classmates[0]
+'michael'
+>>> classmates[1]
+'bob'
+```
+
+如果想要获取最后一个元素，除了计算索引位置之外，还可以用```-1```做索引，直接获取最后一个元素。一次类推可以得到倒数第二个/第三个。如：
+
+``` Python
+>>> classmates[-1]
+'tracy'
+>>> classmates[-2]
+'bob'
+>>> classmates[-3]
+'michael'
+```
+
+- 由于 list 是一个可变的有序集合，所以可以在 list 的末尾追加元素，用 append(*item_name*) 函数；也可以用 insert(*item_location*,*item_name*) 函数把元素插入到指定的位置；也可以用 pop() 函数删除 list 末尾的元素；也可以用 pop(*item_location*) 删除指定位置的元素。要把某个元素替换成别的元素，可以直接给对应索引位置的元素赋值。如：
+
+``` Python
+>>> classmates.append('chenyubo')
+>>> classmates.insert(4,'toby')
+>>> classmates
+['michael', 'bob', 'tracy', 'chenyubo', 'toby']
+>>> classmates.pop()
+'toby'
+>>> classmates.pop(2)
+'tracy'
+>>> classmates
+['michael', 'bob', 'chenyubo']
+>>> classmates[1]='Bob'
+>>> classmates
+['michael', 'Bob', 'chenyubo']
+```
+
+-  list 里面的元素的数据类型可以不同，list 元素也可以是另一个 list 。如果 list 内部还有 list 则可以把外层的 list 看做一个二维数组（很少用到）。如：
+
+``` Python
+>>> L=['Apple',1,2,True]
+>>> L
+['Apple', 1, 2, True]
+>>> s=['Python','MATLAB',['C','C++'],'Java']
+>>> len(s)
+4
+>>> s[2][1]
+'C++'
+```
+
+- tuple 是 Python 中内置的另一种有序列表，用小括号将所有元素括起来。它和 list 非常相似，但是 tuple 一旦初始化就不能修改，也就是说它没有 append(), insert(), pop() 之类的方法。其他获取元素的方法和 list 相同，只是不能赋值。如：
+
+``` Python
+'C++'
+>>> classmates=('micheal','bob','chenyubo')
+>>> classmates.pop()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'pop'
+```
+
+- 为了防止定义单元素的 tuple 的小括号和数学运算的小括号，在定义只有一个元素的 tuple 时必须加一个逗号来消除歧义。另外需要注意的是，如果 tuple 中的元素中包含 list ，那么这个 list 中的元素是可以改变的，因为 tuple 中的不可改变是指 tuple 中元素的指向永远不改变，如果指向一个 list ，就不能改成指向其他对象，但是指向的 list 本身可变。如：
+
+``` Python
+>>> classmate=('michael',)
+>>> classmate
+('michael',)
+>>> t=('a','b',['x','y'])
+>>> t
+('a', 'b', ['x', 'y'])
+>>> t[2][0]='a'
+>>> t[2][1]='b'
+>>> t
+('a', 'b', ['a', 'b'])
+```
