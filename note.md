@@ -183,6 +183,8 @@ ordinal not in range(128)
 'C++'
 ```
 
+- 寻找 list 中的某一个元素（首次出现）的位置用```index(item)```函数。
+
 - tuple 是 Python 中内置的另一种**有序**列表，用小括号将所有元素括起来。它和 list 非常相似，但是 tuple 一旦初始化就不能修改，也就是说它没有 append(), insert(), pop() 之类的方法。其他获取元素的方法和 list 相同，只是不能赋值。如：
 
 ``` Python
@@ -368,3 +370,49 @@ False
 ```
 
 set 的原理和 dict 是一样的，所以不能把 list 放入 set。
+
+## 7. 类型转换与函数
+
+- 类型转换的用法同 MATLAB ，直接用类型名做函数名：
+
+``` Python
+>>> int(12.34)
+12
+>>> int('2')
+2
+>>> float('12.34')
+12.34
+>>> str(2)
+'2'
+```
+
+- 进制转换的函数为```hex()```,```bin()```。返回值是一个字符串.
+- Python 中可以把函数名赋值给变量，用变量名调用函数，如：
+
+``` Python
+>>> a=abs
+>>> a(-2)
+2
+```
+
+- 定义函数的格式如下：
+
+``` Python
+def function_name(function_parameter_list):
+    ...
+    function codes
+    ...
+    return return_value
+```
+
+如果没有 return 语句则自动返回 ```None``` 。
+- 如果已经把函数定义在```file_name.py```文件中，那么可以在该文件的目录下启动 Python 解释器，用```from file_name import function_name```来导入函数。注意函数名不包含```.py```扩展名。
+- Python 中可以定义空函数，用```pass```语句：
+
+``` Python
+def nop():
+    pass
+```
+
+注：```pass```语句什么都不干，实际上多用于做占位符，等想好了怎么写再替换掉```pass```。
+
