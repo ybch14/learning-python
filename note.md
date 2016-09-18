@@ -298,3 +298,45 @@ print('Sum of odd numbers from 1 to 100 equals',number)
 ```
 
 注：不要忘了两种循环语句的最后都有一个冒号。
+
+## 6. dict 和 set
+
+- dict 是 Python 中内置的类似 map 的数据格式，使用 key-value 方式存储，查找速度极快。一个 key 只能对应一个 value ，所以多次赋值的话后来的值会把原来的值冲掉。可以通过 key 把数据放入 dict 。如：
+
+``` Python
+>>> score={'Michael':95,'Bob':75,'chenyubo':100}
+>>> score['Michael']
+95
+>>> score['chenyubo']
+100
+>>> score['Bob']=85
+>>> score['Bob']
+85
+>>> score['Adam']=59
+>>> score['Adam']
+59
+```
+
+如果 key 不存在， dict 就会报错。要避免 key 不存在的错误，有两种办法：一是通过```in```判断 key 是否存在，二是通过 dict 提供的 get 方法，如果 key 不存在，可以返回```None```(在命令行中返回```None```时不显示结果)或者返回自己制定的value。要删除一个 key ，可以使用 pop(*key*) 方法。如：
+
+``` Python
+>>> score['zengsihan']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'zengsihan'
+>>> 'Adam'in score
+True
+>>> 'zegnsihan' in score
+False
+>>> score.get('Adam')
+59
+>>> score.get('zengsihan')
+>>> score.get('zengsihan',-1)
+-1
+>>> score.pop('Adam')
+59
+>>> score
+{'chenyubo': 100, 'Bob': 85, 'Michael': 95}
+```
+
+需要注意的是， dict 是用空间换取时间的一种方法。 dict 内部存放的顺序和 key 存放的顺序无关。 ** dict 的 key 必须是不可变对象 **（字符串、整数等，不包括 list ），因为通过 key 计算位置使用的是哈希算法，如果 key 可变的话 dict 内部就混乱了。  
