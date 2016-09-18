@@ -183,7 +183,7 @@ ordinal not in range(128)
 'C++'
 ```
 
-- tuple 是 Python 中内置的另一种有序列表，用小括号将所有元素括起来。它和 list 非常相似，但是 tuple 一旦初始化就不能修改，也就是说它没有 append(), insert(), pop() 之类的方法。其他获取元素的方法和 list 相同，只是不能赋值。如：
+- tuple 是 Python 中内置的另一种**有序**列表，用小括号将所有元素括起来。它和 list 非常相似，但是 tuple 一旦初始化就不能修改，也就是说它没有 append(), insert(), pop() 之类的方法。其他获取元素的方法和 list 相同，只是不能赋值。如：
 
 ``` Python
 'C++'
