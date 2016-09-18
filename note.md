@@ -125,7 +125,7 @@ ordinal not in range(128)
 ```
 
 ## 3. list 和 tuple
-- list 是 Python 内置的一种数据类型，是一种***有序**的可更改的集合，可以随时添加和删除其中的元素，声明方式同 MATLAB 的行向量（空列表的声明方式和空向量也一样）。用 len() 函数可以获得 list 元素中的个数。用数组的索引方式可以访问 list 中的每一个位置的元素。如：
+- list 是 Python 内置的一种数据类型，是一种**有序**的可更改的集合，可以随时添加和删除其中的元素，声明方式同 MATLAB 的行向量（空列表的声明方式和空向量也一样）。用 len() 函数可以获得 list 元素中的个数。用数组的索引方式可以访问 list 中的每一个位置的元素。如：
 ``` Python
 >>> classmates=['michael','bob','tracy']
 >>> classmates
