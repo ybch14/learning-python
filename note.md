@@ -416,3 +416,56 @@ def nop():
 
 注：```pass```语句什么都不干，实际上多用于做占位符，等想好了怎么写再替换掉```pass```。
 
+- 对输入类型做检查可以用内置函数```isinstance()```实现：
+
+``` Python
+def my_abs(x):
+    if not isinstance(x,(int,float)):
+        raise TypeError('bad operand type')
+    if x>=0:
+        return x
+    else:
+        return -x
+```
+
+- Python 中函数可以返回“多个值”，实际上返回的是一个有多个值的 tuple 。在语法上，返回一个 tuple 可以省略括号，而多个变量可以同时接收一个 tuple ，按位置赋给对应的值。
+- ```import  import_name```导入函数包。
+- 默认参数的使用方法与C语言完全相同，有几点要注意：一是必选参数在前，默认参数在后；二是把变化大的参数放在前面，变化小的参数放在后面，这样变化小的参数就可以作为默认参数。
+- 默认参数必须指向**不变对象**（也就是不能为list），否则会出现以下情况：
+
+``` Python
+def add_end(L=[]):
+    L.append('end')
+    return L
+
+>>> add_end([1,2,3])
+[1,2,3,'end']
+>>> add_end()
+['end']
+>>> add_end()
+['end','end']
+```
+
+最后一次调用的返回结果出了问题，因为默认参数L也是一个变量，指向对象[]，如果改变了L的内容，下次调用的时候，默认参数的内容就改变了。为了避免这种情况，默认参数可以用```None```实现：
+
+``` Python
+def add_end(L=[]):
+    if L is None:
+        L=[]
+    L.append('end')
+    return L
+```
+
+- Python 中的函数可以使用可变参数，定义方式是在参数前面加一个```*```。如：
+
+``` Python 
+def calc(*numbers):
+    sum=0
+    for n in numbers:
+        sum=sum+n*n
+    return sum
+```
+
+可变参数既可以直接传入：```func(1,2,3)```，也可以先组装 list 或者 tuple ，再通过在变量名前面加一个```*```传入：```func(*[1,2,3])```。这种方式很有用，也很常见。
+
+- 
