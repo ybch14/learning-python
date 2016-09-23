@@ -476,7 +476,7 @@ def person(name,age,*,city,job):
   print(name,age,city,job)
 ```
 
-- 和关键字参数**kw不同，命名关键字参数需要一个特殊分隔符*，*后面的参数被视为命名关键字参数。调用方式如下：
+- 和关键字参数```**kw```不同，命名关键字参数需要一个特殊分隔符```*```，```*```后面的参数被视为命名关键字参数。调用方式如下：
 
 ``` Python
 >>> person('Jack',24,city='Beijing',job='teacher')
