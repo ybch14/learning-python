@@ -469,4 +469,31 @@ def calc(*numbers):
 
 可变参数既可以直接传入：```func(1,2,3)```，也可以先组装 list 或者 tuple ，再通过在变量名前面加一个```*```传入：```func(*[1,2,3])```。这种方式很有用，也很常见。
 
-- 
+- 如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接收```city```和```job```作为关键字参数。这种方式定义的函数如下：
+
+``` Python
+def person(name,age,*,city,job):
+  print(name,age,city,job)
+```
+
+- 和关键字参数**kw不同，命名关键字参数需要一个特殊分隔符*，*后面的参数被视为命名关键字参数。调用方式如下：
+
+``` Python
+>>> person('Jack',24,city='Beijing',job='teacher')
+Jack 24 Beijing Engineer
+```
+
+如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符`*`了：
+
+``` Python
+def person(name, age, *args, city, job):
+    print(name, age, args, city, job)
+```
+
+命名关键字参数必须传入参数名，这和位置参数不同。命名关键字参数可以有缺省值，从而简化调用：
+
+``` Python
+def person(name, age, *, city='Beijing', job):
+    print(name, age, city, job)
+```
+
