@@ -264,6 +264,7 @@ for x in numberlist:
 print('Sum of 1 to 10 equals ',number)
 ```
 
+
 输出结果为：
 
 ```
@@ -279,6 +280,8 @@ Sum of 1 to 10 equals  55
 >>> list(range(10))
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
+上面的用法是```range()```的缺省形式。```range()```的函数标准使用形式是```range(start,end,step)```
 
 - Python 中的 while 循环格式为
 
