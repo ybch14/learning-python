@@ -8,3 +8,4 @@ if birth>2000:
 else:
 	print('00前')
 print('hello world')
+print('hello python')
