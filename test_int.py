@@ -7,4 +7,4 @@ if birth>2000:
 	print('00后')
 else:
 	print('00前')
-print('hello world')
+
